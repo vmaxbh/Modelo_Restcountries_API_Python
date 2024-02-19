@@ -31,7 +31,7 @@ def test_pais_nome_incompleto():
     country_name = 'br'
     url = f"https://restcountries.com/v3.1/name/{country_name}"
     response = requests.get(url)
-    assert response.status_code ==  400
+    assert response.status_code ==  200
     country_data = response.json()
     assert isinstance(country_data, list)
     assert any(country_name.lower() in country['name']['common'].lower() for country in country_data)
